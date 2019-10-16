@@ -1,0 +1,8 @@
+
+void main(){
+int b = 3;
+String nome = 'Vitória';
+print(b);
+print(nome);
+}
+
