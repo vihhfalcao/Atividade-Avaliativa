@@ -1,73 +1,39 @@
-# Atividade-Avaliativa# 
-2)a)
-void main(){
-int b = 3;
-String nome = 'Vitória';
-print(b);
-print(nome);
-}
 
-2)b)
-void main(){
-Chamada();
+void main() {
+ Conta c = new Conta(1235,2541,5000);
+  c.deposito(1000);
+  c.transferencia(200);
+  c.saque(50);
 }
-void Chamada(){
-  for(int i=1; i<=10; i++){
-    print(i);
+class Conta{
+  int conta;
+  int agencia;
+  double saldo;
+  Conta(this.conta,this.agencia,this.saldo);
+  void transferencia(double a){
+    if(this.saldo<a){
+      print("Saldo insuficiente");
+    }
+    else{
+      this.saldo = this.saldo - a;
+      saldoatual();
+    }
+  
   }
-}
-
-2)c)
-void main(){
- int a = 50;
-Chamada(a);
-}
-void Chamada(int b){
-  for(int i=1; i<=b; i++){
-    print(i);
+  void saldoatual(){
+    print("saldo atual é ${this.saldo}");
   }
-}
-
-2)d)
-void main(){
- int a = 50;
-Chamada(a);
-}
-void Chamada(int b){
-   int c = 0;
-  for(int i=0; i<=b; i++){
-    c = c + i;
+  void deposito(double d){
+    this.saldo = this.saldo + d;
+    saldoatual();
   }
-  print(c);
-}
-
-2)e)
-void main(){
-Pessoa gente = new Pessoa('Fulano','Sicrano','Beltrano',10,1.70);
-  gente.Fazendo();
-  gente.Pensando();
-  gente.nome;
-  gente.pai;
-  gente.mae;
-  gente.idade;
-  gente.altura;
-  print( gente.nome);
-  print( gente.pai);
-  print( gente.mae);
-  print( gente.idade);
-  print( gente.altura);
-}
-class Pessoa{
-  String nome;
-  String pai;
-  String mae;
-  int idade;
-  double altura;
-  Pessoa(this.nome, this.pai, this.mae, this.idade, this.altura);
-  void Fazendo(){
-    print('Fazendo nada no  momento');
-  }
-  void Pensando(){
-    print('Como eu queria está em casa no momento');
+  void saque(double saque){
+      if(this.saldo<saque){
+      print("Saldo insuficiente");
+    }
+    else{
+      this.saldo = this.saldo - saque;
+      saldoatual();
+    }
   }
 }
